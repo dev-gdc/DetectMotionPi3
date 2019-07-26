@@ -5,6 +5,8 @@ import picamera
 import pymysql.cursors
 
 pirSensorPin = 18
+dbpasswordpath = "/home/pi/PYSCRIPTS/DetectMotionPi3"
+
 
 #Set up PIR sensor pin.
 GPIO.setmode(GPIO.BCM)
@@ -17,7 +19,7 @@ camera.vflip = True
 
 #Get Password information from config file.
 
-with open("dbpassword.config") as pwfile:
+with open("%s/dbpassword.config" % dbpasswordpath) as pwfile:
 	pwfilelist = pwfile.read().splitlines()
 
 hostf = pwfilelist[0]
